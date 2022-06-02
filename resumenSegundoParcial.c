@@ -16,7 +16,6 @@ Resumen:
 int main(){	
 
 	
-	
 	//Declaracion de una Cadena o String
 	/*
 	siempre se debe tener en cuenta un caracter adicional a la cadena mas larga
@@ -28,45 +27,79 @@ int main(){
 	
 	(Las dos formas de inicializar la cadena son equivalentes)	
 	*/
-	char unString[5] = "hola";
-	char unaCadena[] = {' ','m','u','n','d','o','\0'};
+	char unString[] = "hola";
+	char otroString[] = {' ','m','u','n','d','o','\0'};
+	char unaPalabra[]="hola";
 	printf ("%s\n",unString);
+	printf ("%s\n",otroString);
 	
-	int i = strcmp(unString,"hola");
-	if (i==0){
-		printf("Son iguales");
-	}else{
-		printf("No son iguales");
+	//Cagar una cadena por teclado
+	char tuNombre[20];
+	printf("Ingrese su nombre: \n");
+	scanf("%s",&tuNombre);
+	printf("Su nombre es: %s\n",tuNombre);
+	
+	
+	//Recorrer una cadena
+	
+	/*
+	el indice de la cadena empieza con el numero 0
+	unString = {	h	o	l	a	'\0'   }
+	Indice   = {	0	1	2	3	 4	   } osea  0 <= i <= (n-1)
+	*/
+	
+	//usando un cliclo for
+	for ( int i=0 ; i<4 ; i=i+1)
+	{
+		printf("caracter posicion %d: %c\n",i,unString[i]);
 	}
 	
+	//usando while
+	int z=0;
+	char caracter=unString[z];
 	
-	// la funcion strlen(cadena); retorna la longitud de la cadena
-	
-	printf("\nLongitud del string: %d\n",strlen(unString));
-	for (int i=0 ; i<4 ; i++){
-		printf("%c\n",unString[i]);
+	while(caracter!='\0')
+	{
 		
+		printf("caracter posicion %d: %c\n",z,unString[z]);
+		z=z+1;
+		caracter = unString[z];
 	}
 	
+	//cargar una cadena caracter a caracter
+	caracter ='a';
+	// char unaPalabra[]="hola";
+	int j=(0);
+	printf("ingrese 4 caracteres\n");
 	
-	printf("\nLongitud de la cadena: %d\n",strlen(unaCadena));
-	for (int i=0 ; i<6 ; i++){
-		printf("%c\n",unaCadena[i]);
+	while(j<=4)
+	{
+		
+		
+		printf("%d: ",j);
+		scanf("%c\n",&caracter);
+		unaPalabra[j]=caracter;
+		j++;
+		
+
 	}
 	
-	//la funcion strcat(cadena1, cadena2); agrega una cadena a otra
-	strcat(unString,unaCadena);
-	printf("\n%s\n",unString);
+	printf("\ndespues: %s\n",unaPalabra);
 	
-	/*i = strcmp(unString,"hola mun");
-	if (i==0){
-		printf("Son iguales");
-	}else{
-		printf("No son iguales");
+	/*j=(-1);
+	while(j<4)
+	{
+		j=j+1;
+		printf("\n %c \n",unaPalabra[j]);
+		
+		
 	}*/
 	
-	printf("\n%s\n",unString);
-	
+	printf("000 %c -",unaPalabra[0]);
+	printf("111 %c -",unaPalabra[1]);
+	printf("222 %c -",unaPalabra[2]);
+	printf("333 %c -",unaPalabra[3]);
+	printf("%c\n",unaPalabra[4]);
 	
 	getch();
 	return 0;
